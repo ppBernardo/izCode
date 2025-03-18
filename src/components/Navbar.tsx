@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <a href="/" className="flex items-center">
             <img
-              src="/public/logo.png"
+              src="/logo.png"
               alt="izcode Logo"
               className="h-10"
             />

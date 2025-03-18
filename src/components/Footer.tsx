@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <img 
-              src="/public/logo.png" 
+              src="/logo.png" 
               alt="izcode Logo" 
               className="h-8 mb-6"
             />
