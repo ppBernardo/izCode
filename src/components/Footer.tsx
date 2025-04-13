@@ -35,7 +35,7 @@ const Footer = () => {
                 rel="noreferrer"
                 className="font-mono text-sm tracking-wider hover:text-izcode-blue transition-colors"
               >
-               e-mail: contato@izcode.com.br
+               E-MAIL: contato@izcode.com.br
               </a>
             </div>
             <p className="text-sm font-light">
