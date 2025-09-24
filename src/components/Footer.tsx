@@ -61,11 +61,10 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <p className="mb-4 md:mb-0">
+          <div className="text-center text-sm text-gray-400">
+            <p>
               &copy; {currentYear} izcode. Todos os direitos reservados.
             </p>
-            <p>Feito com ❤️ no Brasil</p>
           </div>
         </div>
       </div>
