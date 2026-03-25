@@ -4,9 +4,9 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { WHATSAPP_HREF } from "@/lib/contact";
 
 const assurances = [
-  "Retorno inicial em até 24 horas úteis",
-  "Conversa técnica e comercial sem compromisso",
-  "Proposta com escopo e investimento alinhados",
+  "Retorno em até 24 horas úteis",
+  "Conversa comercial sem compromisso",
+  "Proposta com o que será feito e quanto custa",
 ];
 
 const CallToAction = () => {
@@ -82,7 +82,7 @@ const CallToAction = () => {
           <div className="relative z-[1] mt-14 md:mt-16 pt-10 md:pt-12 border-t border-gray-200 dark:border-gray-700 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
             {[
               { v: "24h", l: "Resposta", s: "prioridade no primeiro contato" },
-              { v: "100%", l: "Diagnóstico", s: "alinhamento de escopo e risco" },
+              { v: "100%", l: "Alinhamento", s: "antes de fechar" },
               { v: "50+", l: "Entregas", s: "projetos faturados pela izcode" },
             ].map((item) => (
               <div key={item.l} data-reveal className="text-center sm:text-left">

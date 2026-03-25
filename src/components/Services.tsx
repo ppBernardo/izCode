@@ -23,16 +23,16 @@ const Services = () => {
       icon: <Rocket className="h-6 w-6" />,
       title: "Desenvolvimento para Startups",
       description:
-        "Contrate um time que leva do MVP ao crescimento: roadmap alinhado a investimento, métricas e entregas que você mostra em demo.",
+        "Um time que leva da primeira versão ao crescimento: plano por etapas, números que importam e algo que você pode mostrar em reunião.",
       grid:
-        "md:col-span-6 lg:col-span-7 lg:row-span-2 lg:min-h-[min(360px,44svh)] !rounded-[2rem] lg:p-9 lg:pb-10 flex flex-col min-h-0",
+        "md:col-span-6 lg:col-span-7 lg:row-span-2 !rounded-[2rem] lg:p-8 lg:pb-9 flex flex-col min-h-0",
       canvas: <StartupProductCanvas />,
     },
     {
       icon: <Database className="h-6 w-6" />,
       title: "CRM Personalizado",
       description:
-        "Pare de adaptar o negócio ao software genérico: fluxos, funis e relatórios sob medida para o seu time comercial fechar mais.",
+        "Pare de adaptar o negócio ao sistema genérico: etapas de venda e relatórios do jeito do seu time para fechar mais.",
       grid:
         "md:col-span-3 lg:col-span-5 lg:min-h-[200px] !rounded-3xl lg:self-start flex flex-col",
       canvas: <CrmPipelineCanvas />,
@@ -41,7 +41,7 @@ const Services = () => {
       icon: <Zap className="h-6 w-6" />,
       title: "Soluções Sob Medida",
       description:
-        "Automação, integrações e sistemas internos que reduzem custo operacional — com escopo e prazo definidos antes de começar.",
+        "Automação e sistemas internos que cortam custo operacional — com escopo e prazo combinados antes de começar.",
       grid:
         "md:col-span-3 lg:col-span-5 lg:min-h-[220px] !rounded-2xl lg:mt-6 lg:self-end flex flex-col",
       canvas: <AutomationCanvas />,
@@ -64,14 +64,14 @@ const Services = () => {
               data-reveal
               className="section-headline font-heading text-pretty"
             >
-              Serviços com proposta antes do primeiro commit
+              Serviços com proposta antes de começar a obra
             </h2>
           </div>
           <p
             data-reveal
             className="section-lead lg:max-w-md lg:text-right lg:ml-auto shrink-0"
           >
-            Cada frente abaixo pode entrar na sua proposta comercial: escopo fechado, investimento alinhado e entregas que o seu time acompanha.
+            Cada frente abaixo pode entrar na sua proposta: o que será feito, quanto custa e entregas que o seu time acompanha.
           </p>
         </div>
 

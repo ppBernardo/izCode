@@ -344,7 +344,6 @@
     font-size: 0.9375rem;
     line-height: 1.65;
     color: #4b5563;
-    flex-grow: 1;
   }
 
   .dark .scroll-showcase-card__body {

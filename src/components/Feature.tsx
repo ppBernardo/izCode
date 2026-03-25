@@ -25,16 +25,16 @@ const Features = () => {
       icon: <Zap className="h-6 w-6" />,
       title: "Desenvolvimento Ágil",
       description:
-        "Contrate entregas frequentes e visíveis: você prioriza o backlog e vê o que entra em produção a cada ciclo — menos surpresa na fatura.",
+        "Entregas frequentes e visíveis: você diz o que é prioridade e acompanha o que entra no ar a cada etapa — valor combinado antes, sem susto na fatura.",
       grid:
-        "md:col-span-2 lg:col-span-7 lg:row-span-2 lg:min-h-[min(320px,40svh)] !rounded-[2rem] lg:p-9 flex flex-col min-h-0",
+        "md:col-span-2 lg:col-span-7 lg:row-span-2 !rounded-[2rem] lg:p-8 flex flex-col min-h-0",
       canvas: <AgileDeliveryCanvas />,
     },
     {
       icon: <Star className="h-6 w-6" />,
       title: "Experiência do Usuário",
       description:
-        "Interfaces que convertem e reduzem suporte: seu cliente ou time interno encontra o que precisa sem fricção — isso entra no escopo do serviço.",
+        "Telas claras que vendem e reduzem ligação no suporte: quem usa o sistema acha o que precisa sem complicação.",
       grid:
         "md:col-span-1 lg:col-span-5 lg:min-h-[176px] !rounded-xl lg:self-start flex flex-col min-h-0",
       canvas: <UxMicroCanvas />,
@@ -43,16 +43,16 @@ const Features = () => {
       icon: <Award className="h-6 w-6" />,
       title: "Escalabilidade",
       description:
-        "Invista uma vez em arquitetura que aguenta crescimento: menos retrabalho depois que o negócio decolar — previsível para o seu CFO.",
+        "Uma base que aguenta o negócio crescer: menos retrabalho quando a demanda aumenta — custo previsível.",
       grid:
         "md:col-span-1 lg:col-span-5 lg:min-h-[200px] !rounded-3xl lg:mt-5 lg:self-end flex flex-col min-h-0",
       canvas: <ScaleMicroCanvas />,
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: "Tecnologias Modernas",
+      title: "Tecnologia atual",
       description:
-        "Stack atual e documentada: seu time técnico ou futura consultoria não fica refém de código obscuro — transparência faz parte do serviço.",
+        "Ferramentas atuais e registro do que foi feito: qualquer profissional que entrar depois entende o projeto — nada escondido.",
       grid:
         "md:col-span-2 lg:col-span-5 lg:min-h-[168px] !rounded-2xl flex flex-col min-h-0",
       canvas: <TechStackCanvas />,
@@ -61,7 +61,7 @@ const Features = () => {
       icon: <Users className="h-6 w-6" />,
       title: "Equipe Especializada",
       description:
-        "Quem vende o projeto é quem executa: menos telefone sem fio e mais responsabilidade até a entrega — você sabe com quem está falando.",
+        "Quem apresenta a proposta é quem executa: menos gente no meio e mais responsabilidade até a entrega — você sabe com quem fala.",
       grid:
         "md:col-span-1 lg:col-span-3 lg:min-h-[188px] !rounded-[1.375rem] flex flex-col min-h-0",
       canvas: <TeamMicroCanvas />,
@@ -70,7 +70,7 @@ const Features = () => {
       icon: <Clock className="h-6 w-6" />,
       title: "Suporte Contínuo",
       description:
-        "Após o go-live, o serviço não some: melhorias, monitoramento e alinhamento para o sistema continuar gerando valor — contratável à parte.",
+        "Depois do lançamento, o time não some: melhorias e acompanhamento para o sistema continuar útil — pode entrar no contrato à parte.",
       grid:
         "md:col-span-1 lg:col-span-4 lg:min-h-[196px] !rounded-[2rem] flex flex-col min-h-0",
       canvas: <SupportMicroCanvas />,
@@ -78,10 +78,10 @@ const Features = () => {
   ];
 
   const stats = [
-    { value: "100%", label: "Compromisso com entrega", hint: "acordo de escopo claro" },
-    { value: "50+", label: "Projetos faturados", hint: "de MVP a CRM" },
-    { value: "24/7", label: "Canal de suporte", hint: "quando o contrato incluir" },
-    { value: "5+", label: "Anos no mercado", hint: "produto & engenharia" },
+    { value: "100%", label: "Compromisso com entrega", hint: "combinado por escrito" },
+    { value: "50+", label: "Projetos entregues", hint: "do site ao sistema interno" },
+    { value: "24/7", label: "Canal de suporte", hint: "quando estiver no contrato" },
+    { value: "5+", label: "Anos no mercado", hint: "produto e operação" },
   ];
 
   return (
@@ -106,14 +106,14 @@ const Features = () => {
               data-reveal
               className="mt-4 md:mt-5 text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed"
             >
-              Diferenciais pensados para quem assina a nota fiscal — não só para quem abre o editor.
+              Benefícios pensados para quem compra o serviço e mostra resultado para o negócio.
             </p>
           </div>
           <p
             data-reveal
             className="section-lead lg:max-w-md lg:text-right lg:ml-auto shrink-0"
           >
-            Transparência de escopo, comunicação direta com quem implementa e foco em retorno para o seu negócio. É assim que estruturamos cada contrato.
+            Proposta clara, conversa direta com quem faz o trabalho e foco no retorno para o seu negócio.
           </p>
         </div>
 
@@ -150,7 +150,7 @@ const Features = () => {
             data-reveal
             className="text-center text-sm text-gray-600 dark:text-gray-400 max-w-lg mx-auto mb-10 md:mb-12"
           >
-            Indicadores que reforçam a previsibilidade do serviço — peça referências e cases na conversa comercial.
+            Números que dão segurança na hora de fechar — peça referências na conversa com a gente.
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {stats.map((s) => (

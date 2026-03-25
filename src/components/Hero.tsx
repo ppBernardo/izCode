@@ -4,9 +4,9 @@ import { useHeroMotion } from "@/hooks/useHeroMotion";
 import { WHATSAPP_HREF } from "@/lib/contact";
 
 const benefits = [
-  "Escopo e investimento alinhados antes do código",
-  "Entregas em ciclos — você acompanha o que entra em produção",
-  "Time que fala com decisores, não só com o computador",
+  "Valor e prazo combinados antes de começar",
+  "Entregas em etapas — você vê o resultado antes de investir na próxima",
+  "Quem vende conversa com você, não só com a tela",
 ];
 
 const Hero = () => {
@@ -37,7 +37,7 @@ const Hero = () => {
               data-hero
               className="section-lead mt-6 md:mt-8 text-pretty max-w-2xl"
             >
-              Contrate desenvolvimento, CRMs e integrações com quem entrega ponta a ponta — da primeira reunião ao suporte após o go-live.
+              Contrate desenvolvimento, CRM e integrações com quem entrega ponta a ponta — da primeira conversa ao suporte depois do lançamento.
             </p>
             <ul
               data-hero
@@ -86,7 +86,7 @@ const Hero = () => {
               {[
                 { v: "50+", l: "Projetos entregues" },
                 { v: "100%", l: "Foco em resultado" },
-                { v: "24/7", l: "Suporte técnico" },
+                { v: "24/7", l: "Suporte" },
               ].map((s) => (
                 <div key={s.l} className="stat-chip min-w-[7.5rem]">
                   <span className="font-heading text-xl font-bold tabular-nums text-gray-900 dark:text-white">
@@ -105,41 +105,41 @@ const Hero = () => {
               <div className="flex items-center gap-2 mb-4 text-gray-400 dark:text-gray-500">
                 <Sparkles className="h-3.5 w-3.5 shrink-0" />
                 <span className="text-[11px] uppercase tracking-widest">
-                  Como fechamos o serviço
+                  Do primeiro contato ao contrato
                 </span>
               </div>
-              <pre className="whitespace-pre-wrap break-words text-left">
-                <span className="text-gray-400 dark:text-gray-500">{"// "}do primeiro contato ao contrato{"\n"}</span>
-                <span className="text-gray-900 dark:text-gray-100">const </span>
-                <span className="text-gray-700 dark:text-gray-300">contratacao </span>
-                <span className="text-gray-400 dark:text-gray-500">= </span>
-                <span className="text-gray-900 dark:text-gray-100">{"{"}</span>
-                {"\n"}
-                {"  "}
-                <span className="text-gray-700 dark:text-gray-300">briefing</span>
-                <span className="text-gray-400 dark:text-gray-500">: </span>
-                <span className="text-gray-900 dark:text-gray-100">&quot;entender meta e prazo&quot;</span>
-                <span className="text-gray-400 dark:text-gray-500">,</span>
-                {"\n"}
-                {"  "}
-                <span className="text-gray-700 dark:text-gray-300">proposta</span>
-                <span className="text-gray-400 dark:text-gray-500">: </span>
-                <span className="text-gray-900 dark:text-gray-100">&quot;escopo + investimento&quot;</span>
-                <span className="text-gray-400 dark:text-gray-500">,</span>
-                {"\n"}
-                {"  "}
-                <span className="text-gray-700 dark:text-gray-300">execucao</span>
-                <span className="text-gray-400 dark:text-gray-500">: </span>
-                <span className="text-gray-900 dark:text-gray-100">&quot;sprints com entregas visíveis&quot;</span>
-                {"\n"}
-                <span className="text-gray-900 dark:text-gray-100">{"}"}</span>
-                <span className="text-gray-400 dark:text-gray-500">;</span>
-                {"\n\n"}
-                <span className="text-gray-400 dark:text-gray-500">{"// "}pronto para receber uma estimativa?{"\n"}</span>
-                <span className="text-gray-900 dark:text-gray-100">abrirWhatsApp</span>
-                <span className="text-gray-400 dark:text-gray-500">(); </span>
-                <span className="text-gray-500 dark:text-gray-600">{"// "}botão ao lado</span>
-              </pre>
+              <ol className="space-y-4 text-left">
+                {[
+                  {
+                    step: "1",
+                    title: "Conversa",
+                    body: "Entendemos meta, prazo e o que precisa aparecer primeiro.",
+                  },
+                  {
+                    step: "2",
+                    title: "Proposta",
+                    body: "Você recebe o que será feito, quanto custa e em quanto tempo.",
+                  },
+                  {
+                    step: "3",
+                    title: "Entregas",
+                    body: "Mostramos avanço em etapas — você decide o próximo passo com segurança.",
+                  },
+                ].map((item) => (
+                  <li key={item.step} className="flex gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-xs font-semibold text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100">
+                      {item.step}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">{item.title}</p>
+                      <p className="mt-0.5 text-sm text-gray-600 dark:text-gray-400 leading-snug">{item.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-5 text-xs text-gray-500 dark:text-gray-500">
+                Quer uma estimativa? Use o botão ao lado e fale com a gente no WhatsApp.
+              </p>
             </div>
           </div>
         </div>

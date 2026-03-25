@@ -102,7 +102,7 @@ const Footer = () => {
             &copy; {currentYear} izcode — serviços de software
           </p>
           <p data-reveal className="text-xs text-gray-600 text-center sm:text-right max-w-md">
-            Contratos com escopo definido · Suporte conforme acordo · Minas Gerais, Brasil
+            Tudo combinado por escrito · Suporte conforme o contrato · Minas Gerais, Brasil
           </p>
         </div>
       </div>
