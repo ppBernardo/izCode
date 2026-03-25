@@ -1,52 +1,145 @@
-import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
+import { ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react";
+import { useHeroMotion } from "@/hooks/useHeroMotion";
+import { WHATSAPP_HREF } from "@/lib/contact";
+
+const benefits = [
+  "Escopo e investimento alinhados antes do código",
+  "Entregas em ciclos — você acompanha o que entra em produção",
+  "Time que fala com decisores, não só com o computador",
+];
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useHeroMotion(sectionRef);
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Hero Content */}
-          <div className="py-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900 dark:text-white animate-fade-in-up">
-              Transformando ideias em{" "}
-              <span className="accent-text">soluções digitais</span>
-            </h1>
-            
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animate-delay-200">
-              Desenvolvemos produtos digitais para startups, CRMs personalizados e soluções tecnológicas que impulsionam o crescimento do seu negócio.
+    <section
+      ref={sectionRef}
+      className="relative min-h-[100svh] flex flex-col justify-end lg:justify-center bg-white dark:bg-gray-900 overflow-hidden hero-shell"
+    >
+      <div className="hero-grid" aria-hidden />
+      <div className="container-custom relative z-10 pt-28 pb-16 md:pt-32 md:pb-24 lg:py-28">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 xl:gap-14 items-center">
+          <div className="lg:col-span-7" data-hero-parallax>
+            <p data-hero className="section-eyebrow mb-5 md:mb-6">
+              Software sob medida · startups e empresas
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up animate-delay-300">
-              <a 
-                href="https://api.whatsapp.com/send/?phone=5531991732236&text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20estou%20interessado%20no%20servi%C3%A7o%20da%20izcode&type=phone_number&app_absent=0
-" 
-                target="_blank" 
+            <h1
+              data-hero
+              className="section-headline font-heading text-balance"
+            >
+              Transforme seu desafio em{" "}
+              <span className="accent-text">produto digital que vende</span>
+              <span className="text-gray-400 dark:text-gray-500">.</span>
+            </h1>
+            <p
+              data-hero
+              className="section-lead mt-6 md:mt-8 text-pretty max-w-2xl"
+            >
+              Contrate desenvolvimento, CRMs e integrações com quem entrega ponta a ponta — da primeira reunião ao suporte após o go-live.
+            </p>
+            <ul
+              data-hero
+              className="mt-6 md:mt-7 space-y-2.5 max-w-xl"
+            >
+              {benefits.map((line) => (
+                <li
+                  key={line}
+                  className="flex gap-3 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-snug"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-800">
+                    <Check className="h-3 w-3 text-gray-800 dark:text-gray-200" aria-hidden />
+                  </span>
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <div
+              data-hero
+              className="mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+            >
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
                 rel="noreferrer"
-                className="btn-primary inline-flex items-center group hover-lift transition-smooth"
+                className="btn-primary group hover-lift transition-smooth"
               >
-                Inicie seu projeto
+                <MessageCircle className="mr-2 h-4 w-4 opacity-90" aria-hidden />
+                Pedir proposta no WhatsApp
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
-              
-              <button className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-smooth hover-lift">
-                Ver nossos trabalhos
-              </button>
+              <a href="#services" className="btn-outline hover-lift transition-smooth">
+                Ver serviços e entregas
+              </a>
             </div>
+            <p
+              data-hero
+              className="mt-4 text-xs sm:text-sm text-gray-500 dark:text-gray-500 font-mono"
+            >
+              Resposta em até 24h · Consultoria inicial sem compromisso
+            </p>
+            <div
+              data-hero
+              className="mt-8 md:mt-10 flex flex-wrap gap-3"
+            >
+              {[
+                { v: "50+", l: "Projetos entregues" },
+                { v: "100%", l: "Foco em resultado" },
+                { v: "24/7", l: "Suporte técnico" },
+              ].map((s) => (
+                <div key={s.l} className="stat-chip min-w-[7.5rem]">
+                  <span className="font-heading text-xl font-bold tabular-nums text-gray-900 dark:text-white">
+                    {s.v}
+                  </span>
+                  <span className="mt-0.5 text-xs text-gray-500 dark:text-gray-400 leading-snug">
+                    {s.l}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in-up animate-delay-400">
-              <div className="text-center animate-scale-in animate-delay-100 group cursor-pointer">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1 transition-smooth group-hover:scale-110">50+</div>
-                <div className="text-gray-600 dark:text-gray-400 transition-smooth group-hover:text-gray-800 dark:group-hover:text-gray-200">Projetos Entregues</div>
+          <div className="lg:col-span-5 lg:block hidden">
+            <div data-hero className="code-panel relative">
+              <div className="flex items-center gap-2 mb-4 text-gray-400 dark:text-gray-500">
+                <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                <span className="text-[11px] uppercase tracking-widest">
+                  Como fechamos o serviço
+                </span>
               </div>
-              <div className="text-center animate-scale-in animate-delay-200 group cursor-pointer">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1 transition-smooth group-hover:scale-110 animate-pulse-subtle">100%</div>
-                <div className="text-gray-600 dark:text-gray-400 transition-smooth group-hover:text-gray-800 dark:group-hover:text-gray-200">Clientes Satisfeitos</div>
-              </div>
-              <div className="text-center animate-scale-in animate-delay-300 group cursor-pointer">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1 transition-smooth group-hover:scale-110">24/7</div>
-                <div className="text-gray-600 dark:text-gray-400 transition-smooth group-hover:text-gray-800 dark:group-hover:text-gray-200">Suporte Técnico</div>
-              </div>
+              <pre className="whitespace-pre-wrap break-words text-left">
+                <span className="text-gray-400 dark:text-gray-500">{"// "}do primeiro contato ao contrato{"\n"}</span>
+                <span className="text-gray-900 dark:text-gray-100">const </span>
+                <span className="text-gray-700 dark:text-gray-300">contratacao </span>
+                <span className="text-gray-400 dark:text-gray-500">= </span>
+                <span className="text-gray-900 dark:text-gray-100">{"{"}</span>
+                {"\n"}
+                {"  "}
+                <span className="text-gray-700 dark:text-gray-300">briefing</span>
+                <span className="text-gray-400 dark:text-gray-500">: </span>
+                <span className="text-gray-900 dark:text-gray-100">&quot;entender meta e prazo&quot;</span>
+                <span className="text-gray-400 dark:text-gray-500">,</span>
+                {"\n"}
+                {"  "}
+                <span className="text-gray-700 dark:text-gray-300">proposta</span>
+                <span className="text-gray-400 dark:text-gray-500">: </span>
+                <span className="text-gray-900 dark:text-gray-100">&quot;escopo + investimento&quot;</span>
+                <span className="text-gray-400 dark:text-gray-500">,</span>
+                {"\n"}
+                {"  "}
+                <span className="text-gray-700 dark:text-gray-300">execucao</span>
+                <span className="text-gray-400 dark:text-gray-500">: </span>
+                <span className="text-gray-900 dark:text-gray-100">&quot;sprints com entregas visíveis&quot;</span>
+                {"\n"}
+                <span className="text-gray-900 dark:text-gray-100">{"}"}</span>
+                <span className="text-gray-400 dark:text-gray-500">;</span>
+                {"\n\n"}
+                <span className="text-gray-400 dark:text-gray-500">{"// "}pronto para receber uma estimativa?{"\n"}</span>
+                <span className="text-gray-900 dark:text-gray-100">abrirWhatsApp</span>
+                <span className="text-gray-400 dark:text-gray-500">(); </span>
+                <span className="text-gray-500 dark:text-gray-600">{"// "}botão ao lado</span>
+              </pre>
             </div>
           </div>
         </div>
