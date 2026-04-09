@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -94,12 +94,151 @@
     scroll-behavior: smooth;
   }
 
+  /* ScrollTrigger + scrub: smooth no html atrapalha o pin e o scrub */
+  html:has(.tech-landing) {
+    scroll-behavior: auto;
+  }
+
   body {
     @apply bg-white text-gray-900 font-sans;
   }
 
   .dark body {
     @apply bg-gray-900 text-gray-100;
+  }
+
+  /* Landing: paleta e ritmo próximos de https://awful.frav.in/ */
+  .tech-landing {
+    --awful-bg: #09090b;
+    --awful-bg-elevated: #121826;
+    --awful-fg: #e8e8e8;
+    --awful-fg-muted: #666666;
+    --awful-accent: #3399ff;
+    --awful-accent-dim: #1a6fe0;
+    --awful-border: rgba(255, 255, 255, 0.1);
+    --awful-glow: rgba(51, 153, 255, 0.18);
+    @apply bg-awful-bg text-awful-fg antialiased;
+  }
+
+  .tech-landing .tech-grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 40%, black 10%, transparent 72%);
+  }
+
+  .tech-landing .tech-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      var(--awful-glow),
+      transparent 55%
+    );
+  }
+
+  .tech-landing .awful-overlay {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.12) 0px,
+      rgba(0, 0, 0, 0.12) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .tech-landing .awful-display-huge {
+    font-family: Space Grotesk, system-ui, sans-serif;
+    font-size: clamp(3rem, 12vw, 9rem);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+  }
+
+  @media (min-width: 1024px) {
+    .tech-landing .awful-display-huge {
+      font-size: clamp(5rem, 15vw, 12rem);
+    }
+  }
+
+  .tech-landing .awful-display-large {
+    font-family: Space Grotesk, system-ui, sans-serif;
+    font-size: clamp(2.25rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .tech-landing .awful-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-none px-8 py-4 text-base font-semibold transition-all duration-200;
+    background: var(--awful-accent);
+    color: var(--awful-bg);
+    box-shadow: 0 0 0 transparent;
+  }
+
+  .tech-landing .awful-btn-primary:hover {
+    background: var(--awful-accent-dim);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px var(--awful-glow);
+  }
+
+  .tech-landing .awful-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-none border px-8 py-4 text-base font-semibold transition-all duration-200;
+    border-color: var(--awful-border);
+    color: var(--awful-fg);
+    background: transparent;
+  }
+
+  .tech-landing .awful-btn-outline:hover {
+    border-color: var(--awful-accent);
+    color: var(--awful-accent);
+  }
+
+  @keyframes awful-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .tech-landing .awful-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: awful-marquee 32s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-landing .awful-marquee-track {
+      animation: none;
+    }
+  }
+
+  @keyframes awful-scroll-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scaleY(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scaleY(1.15);
+    }
+  }
+
+  .tech-landing .awful-scroll-hint-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--awful-accent), transparent);
+    animation: awful-scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-landing .awful-scroll-hint-line {
+      animation: none;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -358,6 +497,144 @@
     @apply bg-gray-900/80 backdrop-blur-sm border-b border-gray-700/50;
   }
 
+  .tech-navbar-solid {
+    @apply bg-awful-bg/95 backdrop-blur-md border-b border-white/10;
+  }
+
+  .btn-tech-primary {
+    @apply inline-flex items-center justify-center rounded-none bg-awful-accent px-6 py-3 text-sm font-semibold text-awful-bg transition-colors hover:bg-awful-accent-dim;
+  }
+
+  .btn-tech-ghost {
+    @apply inline-flex items-center justify-center rounded-none border border-white/10 bg-transparent px-6 py-3 text-sm font-medium text-awful-fg transition-colors hover:border-awful-accent hover:text-awful-accent;
+  }
+
+  .tech-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  .tech-landing .awful-terminal {
+    border-radius: 12px;
+    border: 1px solid var(--awful-border);
+    background: var(--awful-bg-elevated);
+    font-family: JetBrains Mono, ui-monospace, monospace;
+    font-size: 0.875rem;
+    overflow: hidden;
+  }
+
+  /* Cards “Como trabalhamos” / serviços — painel + diagrama */
+  .tech-landing .work-frente-card {
+    position: relative;
+    overflow: visible;
+    border: 1px solid var(--awful-border);
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0) 42%
+    ),
+      var(--awful-bg-elevated);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+    transition:
+      border-color 0.35s ease,
+      box-shadow 0.35s ease,
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tech-landing .work-frente-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(51, 153, 255, 0.35),
+      transparent
+    );
+    opacity: 0.35;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .tech-landing .work-frente-card:hover {
+    border-color: rgba(51, 153, 255, 0.25);
+    box-shadow:
+      0 0 0 1px rgba(51, 153, 255, 0.08) inset,
+      0 24px 48px -28px rgba(0, 0, 0, 0.65);
+    transform: translateY(-2px);
+  }
+
+  .tech-landing .work-frente-card:hover::before {
+    opacity: 1;
+  }
+
+  .tech-landing .work-frente-canvas {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    background: #060606;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  }
+
+  .tech-landing .work-frente-canvas-inner {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tech-landing .work-frente-canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 85% 70% at 85% 15%,
+      rgba(51, 153, 255, 0.09),
+      transparent 55%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Harmoniza chips/bordas dos mini-diagramas com o painel escuro */
+  .tech-landing .work-frente-canvas :where([class*="border-gray"]) {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="bg-gray-50"], [class*="bg-gray-800"]) {
+    background-color: rgba(255, 255, 255, 0.045) !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="text-gray-500"]) {
+    color: rgba(232, 232, 232, 0.42) !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="text-gray-400"], [class*="text-gray-600"]) {
+    color: rgba(232, 232, 232, 0.52) !important;
+  }
+
+  .tech-landing .work-frente-canvas .scroll-showcase-card__canvas {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="text-gray-800"]) {
+    color: rgba(232, 232, 232, 0.88) !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="text-gray-900"]) {
+    color: rgba(248, 248, 248, 0.95) !important;
+  }
+
+  .tech-landing .work-frente-canvas :where([class*="text-gray-700"]) {
+    color: rgba(232, 232, 232, 0.78) !important;
+  }
+
+  .tech-card {
+    @apply rounded-none border border-white/10 bg-awful-bg p-6 sm:p-8 transition-all duration-300 hover:border-awful-accent hover:-translate-y-1;
+  }
+
   .parallax-bg {
     background-attachment: fixed;
     background-position: center;
@@ -572,4 +849,17 @@
 
 .animate-pulse-subtle {
   animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4.8s ease-in-out infinite;
 }

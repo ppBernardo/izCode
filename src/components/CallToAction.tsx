@@ -6,48 +6,54 @@ import { WHATSAPP_HREF } from "@/lib/contact";
 const assurances = [
   "Retorno em até 24 horas úteis",
   "Conversa comercial sem compromisso",
-  "Proposta com o que será feito e quanto custa",
+  "Proposta com escopo, prazo e valor",
 ];
 
 const CallToAction = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  useScrollReveal(sectionRef, { stagger: 0.09, y: 32 });
+  useScrollReveal(sectionRef, { stagger: 0.1, y: 44, scaleFrom: 0.9 });
 
   return (
     <section
       ref={sectionRef}
       id="cta"
-      className="section-padding border-t border-gray-200/80 dark:border-gray-800 bg-gray-50 dark:bg-gray-950/40 scroll-mt-24"
+      className="scroll-mt-24 border-t border-white/10 bg-awful-bg py-24 md:py-32"
     >
       <div className="container-custom">
-        <div className="cta-panel">
-          <div className="relative z-[1] max-w-3xl mx-auto text-center">
-            <p data-reveal className="section-eyebrow mb-5 justify-center flex">
-              Fechar negócio
+        <div className="relative overflow-hidden border border-white/10 bg-awful-elevated px-6 py-14 sm:px-10 sm:py-16 md:px-14 md:py-20">
+          <div
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-awful-accent/10 blur-3xl"
+            aria-hidden
+          />
+          <div className="relative z-[1] mx-auto max-w-3xl text-center">
+            <p data-reveal className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-awful-accent">
+              Próximo passo
             </p>
             <h2
               data-reveal
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-gray-900 dark:text-white font-heading text-pretty leading-[1.08]"
+              className="mt-5 font-display text-[clamp(2rem,6vw,3.75rem)] font-bold leading-[1.05] tracking-tight text-awful-fg"
             >
-              Peça uma proposta e receba o próximo passo em até 24h
+              Peça uma proposta e receba o retorno em até 24h
             </h2>
             <p
               data-reveal
-              className="mt-6 md:mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
+              className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-awful-muted sm:text-lg"
             >
-              Descreva em poucas linhas o produto ou processo que precisa digitalizar. Retornamos com perguntas objetivas e uma estimativa para você decidir com segurança.
+              Descreva em poucas linhas o produto ou processo que precisa digitalizar.
+              Voltamos com perguntas objetivas e uma estimativa para você decidir com
+              segurança.
             </p>
             <ul
               data-reveal
-              className="mt-8 max-w-md mx-auto text-left space-y-2.5"
+              className="mx-auto mt-8 max-w-md space-y-2.5 text-left"
             >
               {assurances.map((line) => (
                 <li
                   key={line}
-                  className="flex gap-3 text-sm sm:text-base text-gray-600 dark:text-gray-400"
+                  className="flex gap-3 text-sm text-awful-fg/90 sm:text-base"
                 >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800">
-                    <Check className="h-3 w-3 text-gray-800 dark:text-gray-200" aria-hidden />
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-white/10 bg-awful-bg">
+                    <Check className="h-3 w-3 text-awful-accent" aria-hidden />
                   </span>
                   {line}
                 </li>
@@ -55,44 +61,34 @@ const CallToAction = () => {
             </ul>
             <div
               data-reveal
-              className="mt-9 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center"
+              className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
             >
-              <a
-                href={WHATSAPP_HREF}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary group hover-lift transition-smooth"
-              >
-                <MessageCircle className="mr-2 h-4 w-4" aria-hidden />
-                Pedir proposta no WhatsApp
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <a href={WHATSAPP_HREF} target="_blank" rel="noreferrer" className="awful-btn-primary">
+                <MessageCircle className="h-4 w-4" aria-hidden />
+                WhatsApp
+                <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
-              <a href="#services" className="btn-outline hover-lift transition-smooth text-center">
-                Rever serviços antes
+              <a href="#services" className="awful-btn-outline text-center">
+                Rever serviços
               </a>
             </div>
-            <p
-              data-reveal
-              className="mt-5 text-xs sm:text-sm text-gray-500 dark:text-gray-500 font-mono"
-            >
-              Atendimento comercial · (31) 99173-2236
+            <p data-reveal className="mt-6 font-mono text-xs text-awful-muted">
+              Comercial · (31) 99173-2236
             </p>
           </div>
 
-          <div className="relative z-[1] mt-14 md:mt-16 pt-10 md:pt-12 border-t border-gray-200 dark:border-gray-700 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+          <div className="relative z-[1] mt-14 grid grid-cols-1 gap-8 border-t border-white/10 pt-12 sm:grid-cols-3 md:mt-16 md:pt-14">
             {[
-              { v: "24h", l: "Resposta", s: "prioridade no primeiro contato" },
+              { v: "24h", l: "Resposta", s: "primeiro contato" },
               { v: "100%", l: "Alinhamento", s: "antes de fechar" },
-              { v: "50+", l: "Entregas", s: "projetos faturados pela izcode" },
+              { v: "50+", l: "Entregas", s: "projetos izcode" },
             ].map((item) => (
               <div key={item.l} data-reveal className="text-center sm:text-left">
-                <div className="font-mono text-xl md:text-2xl font-semibold text-gray-900 dark:text-white tabular-nums">
+                <div className="font-mono text-xl font-semibold tabular-nums text-awful-accent md:text-2xl">
                   {item.v}
                 </div>
-                <div className="mt-1 text-sm font-medium text-gray-800 dark:text-gray-200">
-                  {item.l}
-                </div>
-                <div className="mt-0.5 text-xs text-gray-500 dark:text-gray-500 font-mono uppercase tracking-wider">
+                <div className="mt-1 text-sm font-medium text-awful-fg">{item.l}</div>
+                <div className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-awful-muted">
                   {item.s}
                 </div>
               </div>

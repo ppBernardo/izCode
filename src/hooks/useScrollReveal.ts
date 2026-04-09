@@ -6,6 +6,8 @@ export type ScrollRevealOptions = {
   start?: string;
   stagger?: number;
   y?: number;
+  /** Escala inicial (menor que 1) para efeito zoom-in ao entrar na viewport */
+  scaleFrom?: number;
   duration?: number;
   once?: boolean;
 };
@@ -19,6 +21,7 @@ export function useScrollReveal(
     start = "top 88%",
     stagger = 0.09,
     y = 36,
+    scaleFrom = 1,
     duration = 0.65,
     once = true,
   } = options;
@@ -31,11 +34,12 @@ export function useScrollReveal(
       const targets = el.querySelectorAll(selector);
       if (!targets.length) return;
 
-      gsap.set(targets, { opacity: 0, y });
+      gsap.set(targets, { opacity: 0, y, scale: scaleFrom });
 
       gsap.to(targets, {
         opacity: 1,
         y: 0,
+        scale: 1,
         duration,
         ease: "power3.out",
         stagger,
@@ -48,5 +52,5 @@ export function useScrollReveal(
     }, el);
 
     return () => ctx.revert();
-  }, [selector, start, stagger, y, duration, once, scope]);
+  }, [selector, start, stagger, y, scaleFrom, duration, once, scope]);
 }

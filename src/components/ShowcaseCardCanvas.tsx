@@ -80,8 +80,8 @@ export function StartupProductCanvas() {
   ];
   return (
     <div className={canvasWrap}>
-      <div className="flex flex-col sm:flex-row gap-5 sm:gap-7 items-stretch">
-        <div className="flex gap-3 sm:flex-col sm:items-center sm:min-w-[4.5rem]">
+      <div className="flex flex-col items-stretch gap-5 sm:flex-row sm:gap-7 lg:gap-10">
+        <div className="flex gap-3 sm:min-w-[4.5rem] sm:flex-col sm:items-center">
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 sm:[writing-mode:vertical-lr] sm:rotate-180">
             caminho
           </span>
@@ -115,12 +115,12 @@ export function StartupProductCanvas() {
             ))}
           </svg>
         </div>
-        <div className="flex-1 min-w-0 space-y-4">
+        <div className="min-w-0 flex-1 space-y-4 lg:space-y-5">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-500 mb-2.5">
+            <p className="mb-2.5 font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-500 lg:text-[11px]">
               O que você vê na proposta
             </p>
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5 lg:gap-3">
               <IconTile icon={Search} label="Entender" />
               <IconTile icon={Layers} label="Organização" />
               <IconTile icon={GitBranch} label="Atualizações" />

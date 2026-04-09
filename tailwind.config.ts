@@ -69,12 +69,23 @@ export default {
 					'black-light': '#222222',
 					'gray-light': '#f8f8f8',
 					'gray-medium': '#aaaaaa',
-				}
+				},
+				/* Base escura + acento alinhado ao azul do logo izcode */
+				awful: {
+					bg: '#09090b',
+					elevated: '#121826',
+					fg: '#e8e8e8',
+					muted: '#666666',
+					accent: '#3399ff',
+					'accent-dim': '#1a6fe0',
+					border: 'rgba(255, 255, 255, 0.1)',
+				},
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				heading: ['Space Grotesk', 'sans-serif'],
-				mono: ['Space Mono', 'monospace'],
+				heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

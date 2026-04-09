@@ -5,104 +5,96 @@ import { WHATSAPP_HREF } from "@/lib/contact";
 
 const Footer = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  useScrollReveal(sectionRef, { stagger: 0.1, start: "top 92%" });
+  useScrollReveal(sectionRef, { stagger: 0.1, start: "top 92%", scaleFrom: 0.96, y: 24 });
 
   const currentYear = new Date().getFullYear();
 
   return (
     <footer
       ref={sectionRef}
-      className="bg-gray-950 text-white border-t border-gray-800 dark:border-gray-900"
+      className="relative z-[3] border-t border-white/10 bg-awful-bg text-awful-fg"
     >
       <div className="container-custom py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-14 md:mb-16">
+        <div className="mb-14 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10 md:mb-16">
           <div data-reveal className="lg:col-span-5">
-            <div className="flex items-center gap-2 mb-6">
-              <img
-                src="/logo.png"
-                alt="izcode"
-                className="h-9 brightness-0 invert opacity-95"
-              />
-            </div>
-            <p className="text-gray-400 text-base leading-relaxed max-w-md">
-              Desenvolvimento de software e CRM sob medida para empresas que precisam de proposta clara, prazo definido e time que responde depois do pagamento.
+            <img
+              src="/logo.png"
+              alt="izcode"
+              className="h-9 brightness-0 invert opacity-90"
+            />
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-awful-muted">
+              Desenvolvimento de software e CRM sob medida — proposta clara, prazo definido
+              e time que responde depois do go-live.
             </p>
             <a
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-white hover:text-gray-200 transition-colors"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-awful-accent transition-colors hover:text-awful-accent-dim"
             >
-              Pedir proposta comercial
+              Pedir proposta
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
           </div>
 
           <div data-reveal className="lg:col-span-4">
-            <p className="section-eyebrow text-gray-500 mb-4">Serviços</p>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.28em] text-awful-muted">
+              Mapa do site
+            </p>
+            <ul className="mt-4 space-y-3 text-sm text-awful-muted">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Desenvolvimento para startups
+                <a href="#services" className="transition-colors hover:text-awful-fg">
+                  Serviços
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  CRM personalizado
+                <a href="#features" className="transition-colors hover:text-awful-fg">
+                  Princípios e método
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Soluções sob medida
-                </a>
-              </li>
-              <li>
-                <a href="#features" className="hover:text-white transition-colors">
-                  Por que contratar a izcode
+                <a href="#cta" className="transition-colors hover:text-awful-fg">
+                  Contato / proposta
                 </a>
               </li>
             </ul>
           </div>
 
           <div data-reveal className="lg:col-span-3">
-            <p className="section-eyebrow text-gray-500 mb-4">Contato comercial</p>
-            <div className="space-y-4">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.28em] text-awful-muted">
+              Contato
+            </p>
+            <div className="mt-4 space-y-4">
               <a
                 href={WHATSAPP_HREF}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+                className="flex items-center gap-3 text-awful-muted transition-colors hover:text-awful-fg"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-700 bg-gray-900/50 group-hover:border-gray-600">
+                <span className="flex h-9 w-9 items-center justify-center border border-white/10 bg-awful-elevated">
                   <MessageSquare className="h-4 w-4" />
                 </span>
                 <span className="text-sm font-medium">WhatsApp · (31) 99173-2236</span>
               </a>
               <a
                 href="mailto:contato@izcode.com.br"
-                className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group"
+                className="flex items-center gap-3 text-awful-muted transition-colors hover:text-awful-fg"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-700 bg-gray-900/50 group-hover:border-gray-600">
+                <span className="flex h-9 w-9 items-center justify-center border border-white/10 bg-awful-elevated">
                   <Mail className="h-4 w-4" />
                 </span>
                 <span className="text-sm font-medium">contato@izcode.com.br</span>
-              </a>
-              <a
-                href="#cta"
-                className="inline-block text-xs font-mono text-gray-500 hover:text-gray-300 transition-colors mt-2"
-              >
-                Área de proposta e orçamento →
               </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p data-reveal className="text-sm text-gray-500 font-mono">
-            &copy; {currentYear} izcode — serviços de software
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 sm:flex-row">
+          <p data-reveal className="font-mono text-sm text-awful-muted">
+            © {currentYear} izcode
           </p>
-          <p data-reveal className="text-xs text-gray-600 text-center sm:text-right max-w-md">
-            Tudo combinado por escrito · Suporte conforme o contrato · Minas Gerais, Brasil
+          <p data-reveal className="max-w-md text-center text-xs text-awful-muted/80 sm:text-right">
+            Minas Gerais, Brasil · Tudo combinado por escrito
           </p>
         </div>
       </div>
