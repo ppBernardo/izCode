@@ -48,28 +48,46 @@ const Hero = ({ children }: HeroProps) => {
           const travel = Math.max(0, window.innerWidth / 2 - finalBracketSize / 2 - sideGap);
 
           gsap.set([left, right], {
+            left: "50%",
+            top: "50%",
+            xPercent: -50,
+            yPercent: -50,
             x: 0,
             scale: 1,
             opacity: 1,
             filter: "blur(0px)",
             width: initialBracketSize,
             height: initialBracketSize,
-            top: "50%",
-            yPercent: -50,
           });
           gsap.set(left, {
-            clipPath: "polygon(0 0, 52% 0, 52% 100%, 0 100%)",
+            clipPath: "polygon(0 0, 50% 0, 50% 100%, 0 100%)",
           });
           gsap.set(right, {
-            clipPath: "polygon(48% 0, 100% 0, 100% 100%, 48% 100%)",
+            clipPath: "polygon(50% 0, 100% 0, 100% 100%, 50% 100%)",
           });
-          gsap.set(glow, { opacity: 1, scale: 1 });
+          gsap.set(glow, {
+            left: "50%",
+            top: "50%",
+            xPercent: -50,
+            yPercent: -50,
+            opacity: 1,
+            scale: 1,
+          });
           gsap.set(bracketsLayer, { autoAlpha: 1 });
           gsap.set(contentSection, { y: 100, opacity: 0 });
           mainContent.style.setProperty("--bracket-side-space", `${finalBracketSize + sideGap + 14}px`);
 
           if (isReduceMotion) {
-            gsap.set([left, right], { x: 0, scale: 1, opacity: 1, filter: "blur(0px)" });
+            gsap.set([left, right], {
+              left: "50%",
+              top: "50%",
+              xPercent: -50,
+              yPercent: -50,
+              x: 0,
+              scale: 1,
+              opacity: 1,
+              filter: "blur(0px)",
+            });
             gsap.set(heroContent, { opacity: 1, scale: 1, filter: "blur(0px)" });
             gsap.set(contentSection, { y: 0, opacity: 1 });
             gsap.set(bracketsLayer, { autoAlpha: 0 });
@@ -138,6 +156,7 @@ const Hero = ({ children }: HeroProps) => {
                 height: "100vh",
                 top: 0,
                 yPercent: 0,
+                xPercent: -50,
                 filter: "blur(0px)",
               },
               0.25
@@ -150,6 +169,7 @@ const Hero = ({ children }: HeroProps) => {
                 height: "100vh",
                 top: 0,
                 yPercent: 0,
+                xPercent: -50,
                 filter: "blur(0px)",
               },
               0.25
@@ -285,13 +305,21 @@ const Hero = ({ children }: HeroProps) => {
       <div ref={bracketsLayerRef} className="brackets-layer pointer-events-none fixed inset-0 z-[45]" aria-hidden>
         <div
           ref={glowRef}
-          className="pointer-events-none fixed left-1/2 top-1/2 z-[44] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-awful-accent/30 blur-3xl sm:h-36 sm:w-36 lg:h-44 lg:w-44"
+          className="pointer-events-none fixed z-[44] h-28 w-28 rounded-full bg-awful-accent/30 blur-3xl sm:h-36 sm:w-36 lg:h-44 lg:w-44"
         />
-        <div ref={leftRef} className="logo-half logo-half-left fixed left-1/2 z-[46] -translate-x-1/2">
-          <img src="/footo-removebg-preview.png" alt="" className="block h-full w-full object-contain" />
+        <div ref={leftRef} className="logo-half logo-half-left fixed z-[46]">
+          <img
+            src="/footo-removebg-preview.png"
+            alt=""
+            className="block h-full w-full object-contain object-center"
+          />
         </div>
-        <div ref={rightRef} className="logo-half logo-half-right fixed left-1/2 z-[46] -translate-x-1/2">
-          <img src="/footo-removebg-preview.png" alt="" className="block h-full w-full object-contain" />
+        <div ref={rightRef} className="logo-half logo-half-right fixed z-[46]">
+          <img
+            src="/footo-removebg-preview.png"
+            alt=""
+            className="block h-full w-full object-contain object-center"
+          />
         </div>
       </div>
 
