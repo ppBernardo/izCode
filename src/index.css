@@ -176,6 +176,12 @@
     position: relative;
   }
 
+  @media (max-width: 1023px) {
+    .tech-landing .hero-scroll-hint {
+      display: none !important;
+    }
+  }
+
   .tech-landing .brackets-layer {
     contain: layout paint style;
   }
@@ -211,6 +217,18 @@
 
     .tech-landing .hero-section {
       min-height: 175svh;
+    }
+
+    /* Mobile: respiro lateral (menos que sm+, evita texto colado na borda) */
+    .tech-landing .container-custom {
+      padding-left: max(1rem, env(safe-area-inset-left, 0px));
+      padding-right: max(1rem, env(safe-area-inset-right, 0px));
+    }
+
+    /* Sobrepõe --bracket-side-space aplicado em linha pelo Hero */
+    .tech-landing .main-content {
+      padding-left: max(1rem, env(safe-area-inset-left, 0px)) !important;
+      padding-right: max(1rem, env(safe-area-inset-right, 0px)) !important;
     }
   }
 

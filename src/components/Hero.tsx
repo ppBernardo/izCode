@@ -37,14 +37,16 @@ const Hero = ({ children }: HeroProps) => {
         {
           desktop: "(min-width: 1024px)",
           mobile: "(max-width: 1023px)",
+          phone: "(max-width: 639px)",
           reduceMotion: "(prefers-reduced-motion: reduce)",
         },
         (media) => {
           const isReduceMotion = Boolean(media.conditions?.reduceMotion);
           const isDesktop = Boolean(media.conditions?.desktop);
+          const isPhone = Boolean(media.conditions?.phone);
           const initialBracketSize = isDesktop ? 192 : 128;
           const finalBracketSize = isDesktop ? 116 : 84;
-          const sideGap = isDesktop ? 22 : 12;
+          const sideGap = isDesktop ? 22 : isPhone ? 0 : 12;
           const travel = Math.max(0, window.innerWidth / 2 - finalBracketSize / 2 - sideGap);
 
           gsap.set([left, right], {
@@ -75,7 +77,11 @@ const Hero = ({ children }: HeroProps) => {
           });
           gsap.set(bracketsLayer, { autoAlpha: 1 });
           gsap.set(contentSection, { y: 100, opacity: 0 });
-          mainContent.style.setProperty("--bracket-side-space", `${finalBracketSize + sideGap + 14}px`);
+          const sideSpaceExtra = isDesktop ? 14 : isPhone ? 4 : 14;
+          mainContent.style.setProperty(
+            "--bracket-side-space",
+            `${finalBracketSize + sideGap + sideSpaceExtra}px`
+          );
 
           if (isReduceMotion) {
             gsap.set([left, right], {
@@ -291,7 +297,7 @@ const Hero = ({ children }: HeroProps) => {
           </div>
 
           <div
-            className="pointer-events-none absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 sm:bottom-10"
+            className="hero-scroll-hint pointer-events-none absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:bottom-10 lg:flex"
             aria-hidden
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-awful-muted sm:text-[11px]">
