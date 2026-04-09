@@ -136,6 +136,82 @@
     );
   }
 
+  .tech-landing .logo-split-wrapper {
+    min-height: 230svh;
+  }
+
+  .tech-landing .logo-split-stage {
+    isolation: isolate;
+  }
+
+  .tech-landing .logo-half {
+    will-change: transform, clip-path, opacity, filter;
+  }
+
+  .tech-landing .logo-half img {
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: none;
+  }
+
+  .tech-landing .logo-half-left {
+    transform-origin: left center;
+  }
+
+  .tech-landing .logo-half-right {
+    transform-origin: right center;
+  }
+
+  .tech-landing .logo-reveal-section {
+    z-index: 6;
+  }
+
+  .tech-landing .hero-section {
+    min-height: 200svh;
+  }
+
+  .tech-landing .hero-pin-layer {
+    position: relative;
+  }
+
+  .tech-landing .brackets-layer {
+    contain: layout paint style;
+  }
+
+  .tech-landing .content-section {
+    will-change: transform, opacity;
+  }
+
+  .tech-landing .main-content {
+    --bracket-side-space: clamp(64px, 8vw, 152px);
+    padding-left: var(--bracket-side-space);
+    padding-right: var(--bracket-side-space);
+  }
+
+  @media (max-width: 1023px) {
+    .tech-landing .logo-split-wrapper {
+      min-height: 210svh;
+    }
+
+    .tech-landing .hero-section {
+      min-height: 190svh;
+    }
+
+    .tech-landing .main-content {
+      --bracket-side-space: clamp(24px, 6vw, 104px);
+    }
+  }
+
+  @media (max-width: 639px) {
+    .tech-landing .logo-split-wrapper {
+      min-height: 195svh;
+    }
+
+    .tech-landing .hero-section {
+      min-height: 175svh;
+    }
+  }
+
   .tech-landing .awful-overlay {
     background: repeating-linear-gradient(
       0deg,
@@ -193,6 +269,14 @@
   .tech-landing .awful-btn-outline:hover {
     border-color: var(--awful-accent);
     color: var(--awful-accent);
+  }
+
+  @media (max-width: 639px) {
+    .tech-landing .awful-btn-primary,
+    .tech-landing .awful-btn-outline {
+      padding: 0.75rem 1.15rem;
+      font-size: 0.95rem;
+    }
   }
 
   @keyframes awful-marquee {
@@ -629,6 +713,43 @@
 
   .tech-landing .work-frente-canvas :where([class*="text-gray-700"]) {
     color: rgba(232, 232, 232, 0.78) !important;
+  }
+
+  .tech-landing .tech-logo-assemble {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .tech-landing .tech-logo-assemble-glow {
+    position: absolute;
+    inset: 18%;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(51, 153, 255, 0.34) 0%, transparent 72%);
+    filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tech-landing .tech-logo-assemble-half {
+    position: absolute;
+    inset: 0;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 5px 16px rgba(0, 0, 0, 0.35));
+  }
+
+  .tech-landing .tech-logo-assemble-half-left {
+    clip-path: polygon(0 0, 52% 0, 52% 100%, 0 100%);
+  }
+
+  .tech-landing .tech-logo-assemble-half-right {
+    clip-path: polygon(48% 0, 100% 0, 100% 100%, 48% 100%);
+  }
+
+  .tech-landing .tech-logo-assemble-final {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    filter: drop-shadow(0 5px 16px rgba(0, 0, 0, 0.35));
   }
 
   .tech-card {

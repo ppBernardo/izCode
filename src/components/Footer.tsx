@@ -69,21 +69,21 @@ const Footer = () => {
                 href={WHATSAPP_HREF}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 text-awful-muted transition-colors hover:text-awful-fg"
+                className="flex items-start gap-3 text-awful-muted transition-colors hover:text-awful-fg sm:items-center"
               >
                 <span className="flex h-9 w-9 items-center justify-center border border-white/10 bg-awful-elevated">
                   <MessageSquare className="h-4 w-4" />
                 </span>
-                <span className="text-sm font-medium">WhatsApp · (31) 99173-2236</span>
+                <span className="text-sm font-medium break-words">WhatsApp · (31) 99173-2236</span>
               </a>
               <a
                 href="mailto:contato@izcode.com.br"
-                className="flex items-center gap-3 text-awful-muted transition-colors hover:text-awful-fg"
+                className="flex items-start gap-3 text-awful-muted transition-colors hover:text-awful-fg sm:items-center"
               >
                 <span className="flex h-9 w-9 items-center justify-center border border-white/10 bg-awful-elevated">
                   <Mail className="h-4 w-4" />
                 </span>
-                <span className="text-sm font-medium">contato@izcode.com.br</span>
+                <span className="text-sm font-medium break-all">contato@izcode.com.br</span>
               </a>
             </div>
           </div>

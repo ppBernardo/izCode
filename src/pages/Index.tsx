@@ -14,13 +14,14 @@ const Index = () => {
       <div className="awful-overlay pointer-events-none fixed inset-0 z-[2]" aria-hidden />
       <Navbar />
       <main className="relative z-[3] flex-1">
-        <Hero />
-        <AwfulMarquee />
-        <StatementZoom />
-        <DemoTerminal />
-        <Services />
-        <Features />
-        <CallToAction />
+        <Hero>
+          <StatementZoom />
+          <AwfulMarquee />
+          <DemoTerminal />
+          <Services />
+          <Features />
+          <CallToAction />
+        </Hero>
       </main>
       <Footer />
     </div>
