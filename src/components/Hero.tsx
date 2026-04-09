@@ -248,13 +248,19 @@ const Hero = ({ children }: HeroProps) => {
                     rel="noreferrer"
                     className="awful-btn-primary w-full justify-center leading-none sm:w-auto"
                   >
-                    <MessageCircle className="h-4 w-4 shrink-0 self-center" aria-hidden />
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center" aria-hidden>
+                      <MessageCircle className="h-4 w-4" />
+                    </span>
                     <span className="leading-none">Pedir proposta</span>
-                    <ArrowRight className="h-4 w-4 shrink-0 self-center opacity-90" aria-hidden />
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center opacity-90" aria-hidden>
+                      <ArrowRight className="h-4 w-4" />
+                    </span>
                   </a>
                   <a href="#services" className="awful-btn-outline w-full justify-center leading-none sm:w-auto">
                     <span className="leading-none">Ver serviços</span>
-                    <ArrowDown className="h-4 w-4 shrink-0 self-center opacity-80" aria-hidden />
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center opacity-80" aria-hidden>
+                      <ArrowDown className="h-4 w-4" />
+                    </span>
                   </a>
                 </div>
                 <p className="mt-4 font-mono text-xs text-awful-muted">
