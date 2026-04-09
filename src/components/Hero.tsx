@@ -1,9 +1,101 @@
 import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
 import { WHATSAPP_HREF } from "@/lib/contact";
+import { useEffect, useRef } from "react";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const leftHalfRef = useRef<HTMLDivElement>(null);
+  const rightHalfRef = useRef<HTMLDivElement>(null);
+  const revealContentRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const leftHalf = leftHalfRef.current;
+    const rightHalf = rightHalfRef.current;
+    const revealContent = revealContentRef.current;
+    const glow = glowRef.current;
+
+    if (!section || !leftHalf || !rightHalf || !revealContent || !glow) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.2,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+
+      // Animate left half moving left with rotation and fade
+      tl.to(
+        leftHalf,
+        {
+          x: "-120%",
+          rotation: -15,
+          opacity: 0,
+          filter: "blur(8px)",
+          scale: 0.8,
+          ease: "power2.inOut",
+        },
+        0
+      );
+
+      // Animate right half moving right with rotation and fade
+      tl.to(
+        rightHalf,
+        {
+          x: "120%",
+          rotation: 15,
+          opacity: 0,
+          filter: "blur(8px)",
+          scale: 0.8,
+          ease: "power2.inOut",
+        },
+        0
+      );
+
+      // Fade out the glow effect
+      tl.to(
+        glow,
+        {
+          opacity: 0,
+          scale: 1.5,
+          ease: "power2.inOut",
+        },
+        0
+      );
+
+      // Reveal content in the center as the logo splits
+      tl.fromTo(
+        revealContent,
+        {
+          opacity: 0,
+          y: 40,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: "power2.out",
+        },
+        0.3
+      );
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative isolate min-h-[100svh] overflow-x-clip bg-awful-bg pt-28 pb-28 md:pt-36 md:pb-32">
+    <section
+      ref={sectionRef}
+      className="relative isolate min-h-[100svh] overflow-hidden bg-awful-bg pt-28 pb-28 md:pt-36 md:pb-32"
+    >
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div className="tech-glow absolute inset-0 opacity-80" />
         <div className="tech-grid-bg absolute inset-0 opacity-40" />
@@ -34,18 +126,58 @@ const Hero = () => {
             ao que roda em produção.
           </div>
 
+          {/* Logo Split Container */}
           <div className="order-3 relative mx-auto my-2 flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72 lg:absolute lg:left-1/2 lg:top-1/2 lg:my-0 lg:h-80 lg:w-80 lg:-translate-x-1/2 lg:-translate-y-1/2">
-            <div className="animate-float-subtle motion-reduce:animate-none relative flex items-center justify-center">
-              <div
-                className="pointer-events-none absolute h-44 w-44 rounded-full bg-awful-accent/30 blur-3xl sm:h-52 sm:w-52 lg:h-64 lg:w-64"
-                aria-hidden
-              />
-            <img
-              src="/footo-removebg-preview.png"
-              alt="Logo izcode"
-                className="relative h-32 w-32 object-contain sm:h-36 sm:w-36 lg:h-48 lg:w-48"
-              loading="eager"
+            {/* Glow Effect */}
+            <div
+              ref={glowRef}
+              className="pointer-events-none absolute h-44 w-44 rounded-full bg-awful-accent/30 blur-3xl sm:h-52 sm:w-52 lg:h-64 lg:w-64"
+              aria-hidden
             />
+
+            {/* Left Half of Logo - clips right side */}
+            <div
+              ref={leftHalfRef}
+              className="absolute h-32 w-32 sm:h-36 sm:w-36 lg:h-48 lg:w-48"
+              style={{
+                clipPath: "polygon(0 0, 50% 0, 50% 100%, 0 100%)",
+              }}
+            >
+              <img
+                src="/footo-removebg-preview.png"
+                alt=""
+                className="h-full w-full object-contain"
+                loading="eager"
+              />
+            </div>
+
+            {/* Right Half of Logo - clips left side */}
+            <div
+              ref={rightHalfRef}
+              className="absolute h-32 w-32 sm:h-36 sm:w-36 lg:h-48 lg:w-48"
+              style={{
+                clipPath: "polygon(50% 0, 100% 0, 100% 100%, 50% 100%)",
+              }}
+            >
+              <img
+                src="/footo-removebg-preview.png"
+                alt=""
+                className="h-full w-full object-contain"
+                loading="eager"
+              />
+            </div>
+
+            {/* Reveal Content - appears as logo splits */}
+            <div
+              ref={revealContentRef}
+              className="absolute flex flex-col items-center justify-center opacity-0"
+            >
+              <span className="font-mono text-xl font-bold tracking-wider text-awful-accent sm:text-2xl lg:text-3xl">
+                {"{ }"}
+              </span>
+              <span className="mt-2 font-mono text-xs uppercase tracking-[0.3em] text-awful-fg/80">
+                Code is Art
+              </span>
             </div>
           </div>
 
